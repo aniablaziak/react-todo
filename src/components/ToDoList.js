@@ -46,26 +46,24 @@ const StyledForm = styled.form`
   display: flex;
 `;
 
-class ToDoList extends React.Component {
-  componentDidUpdate() {
-    this.props.inputElement.current.focus();
-  }
-  render() {
-    return (
-      <StyledDiv>
-        <StyledHeading>To Do</StyledHeading>
-        <StyledForm onSubmit={this.props.addItem}>
-          <StyledInput
-            placeholder="Task"
-            ref={this.props.inputElement}
-            value={this.props.currentItem.text}
-            onChange={this.props.handleInput}
-          />
-          <StyledButton type="submit">Add</StyledButton>
-        </StyledForm>
-      </StyledDiv>
-    );
-  }
-}
+const ToDoList = props => {
+  // React.useEffect(() => {
+  //   props.inputElement.current.focus();
+  //   console.log(props);
+  // }, []);
+  return (
+    <StyledDiv>
+      <StyledHeading>To Do</StyledHeading>
+      <StyledForm onSubmit={props.addItem}>
+        <StyledInput 
+        placeholder="Task" 
+        ref={props.inputElement}
+        value={props.currentItem.text}
+        onChange={props.handleInput} />
+        <StyledButton type="submit">Add</StyledButton>
+      </StyledForm>
+    </StyledDiv>
+  );
+};
 
 export default ToDoList;
