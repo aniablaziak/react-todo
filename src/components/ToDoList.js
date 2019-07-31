@@ -12,6 +12,7 @@ const StyledDiv = styled.div`
 
 const StyledHeading = styled.h1`
   font-size: 2em;
+  color: ${props => props.theme.body};
   padding: 0 0 1em 0;
   letter-spacing: 5px;
   text-transform: uppercase;
@@ -34,7 +35,6 @@ const StyledButton = styled.button`
   padding: 0.2em;
   font-size: 1.5em;
   margin-left: 0.2em;
-  transition: all 0.35s ease-in-out;
 
   &:hover {
     color: ${props => props.theme.hoverBody};

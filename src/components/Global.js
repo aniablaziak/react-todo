@@ -28,7 +28,7 @@ footer, header, hgroup, menu, nav, section {
 }
 body {
     line-height: 1;
-    font-family: Lato;
+	font-family: Lato;
 }
 ol, ul {
 	list-style: none;
@@ -45,6 +45,12 @@ table {
 	border-collapse: collapse;
 	border-spacing: 0;
 }
+
+* {
+	transition: all 0.3s ease-in-out;
+}
+
+
 `;
 
 export default Global;
