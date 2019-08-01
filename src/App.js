@@ -13,6 +13,15 @@ const Wrapper = styled("div")`
   height: 100vh;
 `;
 
+const StyledDiv = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 0 4em;
+  padding: 2em;
+  border: solid 2px ${props => props.theme.body};
+`;
+
 const App = () => {
   const themeState = useTheme();
   const inputElement = React.createRef();
@@ -44,13 +53,15 @@ const App = () => {
       <Toggle onClick={() => themeState.toggle()}>
         {themeState.dark ? "🌝" : "🌚"}
       </Toggle>
-      <ToDoForm
-        addItem={addItem}
-        inputElement={inputElement}
-        handleInput={handleInput}
-        currentItem={currentItem}
-      />
-      <ClearAll />
+      <StyledDiv>
+        <ToDoForm
+          addItem={addItem}
+          inputElement={inputElement}
+          handleInput={handleInput}
+          currentItem={currentItem}
+        />
+        <ClearAll />
+      </StyledDiv>
     </Wrapper>
   );
 };

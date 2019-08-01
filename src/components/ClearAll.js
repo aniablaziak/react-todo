@@ -1,14 +1,19 @@
 import React from "react";
 import styled from "styled-components";
 
+const StyledDiv = styled.div`
+  display: flex;
+  align-self: flex-end;
+`;
+
 const StyledButton = styled.button`
   background-color: ${props => props.theme.background};
   border: solid ${props => props.theme.body} 2px;
   color: ${props => props.theme.body};
   font-family: Lato;
   padding: 0.2em;
+  margin-top: 1em;
   font-size: 1.5em;
-  margin-left: 0.2em;
   cursor: pointer;
 
   &:hover {
@@ -24,9 +29,9 @@ const ClearAll = () => {
   };
 
   return (
-    <div>
+    <StyledDiv>
       <StyledButton onClick={clearLocalStorage}>Clear all</StyledButton>
-    </div>
+    </StyledDiv>
   );
 };
 

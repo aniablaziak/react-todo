@@ -1,15 +1,6 @@
 import React from "react";
 import styled from "styled-components";
 
-const StyledDiv = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  margin: 0 4em;
-  padding: 2em;
-  border: solid 2px ${props => props.theme.body};
-`;
-
 const StyledHeading = styled.h1`
   font-size: 2em;
   color: ${props => props.theme.body};
@@ -53,7 +44,7 @@ const ToDoForm = props => {
   //   console.log(props);
   // }, []);
   return (
-    <StyledDiv>
+    <div>
       <StyledHeading>To Do</StyledHeading>
       <StyledForm onSubmit={props.addItem}>
         <StyledInput
@@ -64,7 +55,7 @@ const ToDoForm = props => {
         />
         <StyledButton type="submit">Add</StyledButton>
       </StyledForm>
-    </StyledDiv>
+    </div>
   );
 };
 
