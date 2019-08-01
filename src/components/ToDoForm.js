@@ -35,6 +35,7 @@ const StyledButton = styled.button`
   padding: 0.2em;
   font-size: 1.5em;
   margin-left: 0.2em;
+  cursor: pointer;
 
   &:hover {
     color: ${props => props.theme.hoverBody};
@@ -46,7 +47,7 @@ const StyledForm = styled.form`
   display: flex;
 `;
 
-const ToDoList = props => {
+const ToDoForm = props => {
   // React.useEffect(() => {
   //   props.inputElement.current.focus();
   //   console.log(props);
@@ -55,15 +56,16 @@ const ToDoList = props => {
     <StyledDiv>
       <StyledHeading>To Do</StyledHeading>
       <StyledForm onSubmit={props.addItem}>
-        <StyledInput 
-        placeholder="Task" 
-        ref={props.inputElement}
-        value={props.currentItem.text}
-        onChange={props.handleInput} />
+        <StyledInput
+          placeholder="Task"
+          ref={props.inputElement}
+          value={props.currentItem.text}
+          onChange={props.handleInput}
+        />
         <StyledButton type="submit">Add</StyledButton>
       </StyledForm>
     </StyledDiv>
   );
 };
 
-export default ToDoList;
+export default ToDoForm;
