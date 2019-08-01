@@ -18,8 +18,15 @@ const StyledButton = styled.button`
 `;
 
 const ClearAll = () => {
+  const clearLocalStorage = () => {
+    localStorage.clear();
+    console.log(localStorage);
+  };
+
   return (
-    <StyledButton onClick={window.localStorage.clear()}>Clear all</StyledButton>
+    <div>
+      <StyledButton onClick={clearLocalStorage}>Clear all</StyledButton>
+    </div>
   );
 };
 
