@@ -37,14 +37,10 @@ const App = () => {
 
   const addItem = e => {
     e.preventDefault();
-    // const newItem = currentItem;
-    // create a new array
-    // const allItems = [...items, newItem.text];
-    // update the state with this array
-    // setItems(allItems);
-    // console.log(allItems, items);
-    setItems(true);
-    console.log(items);
+    const newItem = currentItem;
+    const allItems = [...items, newItem.text];
+    setItems(allItems);
+    setCurrentItem({ text: "", key: "" });
   };
 
   return (
@@ -55,6 +51,7 @@ const App = () => {
       </Toggle>
       <StyledDiv>
         <ToDoForm
+          items={items}
           addItem={addItem}
           inputElement={inputElement}
           handleInput={handleInput}
