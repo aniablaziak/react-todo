@@ -1,14 +1,6 @@
 import React from "react";
 import styled from "styled-components";
 
-const StyledHeading = styled.h1`
-  font-size: 2em;
-  color: ${props => props.theme.body};
-  padding: 0 0 1em 0;
-  letter-spacing: 5px;
-  text-transform: uppercase;
-`;
-
 const StyledInput = styled.input`
   background-color: ${props => props.theme.background};
   border: solid ${props => props.theme.body} 2px;
@@ -45,9 +37,7 @@ const ToDoForm = props => {
   }, []);
   return (
     <div>
-      <StyledHeading>To Do</StyledHeading>
       <StyledForm onSubmit={props.addItem}>
-        <ul>{props.items}</ul>
         <StyledInput
           placeholder="Task"
           ref={props.inputElement}

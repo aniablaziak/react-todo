@@ -5,12 +5,21 @@ import Global from "./components/Global";
 import Toggle from "./components/Toggle";
 import styled from "styled-components";
 import ClearAll from "./components/ClearAll";
+import ToDoList from "./components/ToDoList";
 
 const Wrapper = styled("div")`
   background: ${props => props.theme.background};
   color: ${props => props.theme.body}
   width: 100vw;
   height: 100vh;
+`;
+
+const StyledHeading = styled.h1`
+  font-size: 2em;
+  color: ${props => props.theme.body};
+  padding: 0 0 1em 0;
+  letter-spacing: 5px;
+  text-transform: uppercase;
 `;
 
 const StyledDiv = styled.div`
@@ -50,8 +59,9 @@ const App = () => {
         {themeState.dark ? "🌝" : "🌚"}
       </Toggle>
       <StyledDiv>
+        <StyledHeading>To Do</StyledHeading>
+        <ToDoList items={items} />
         <ToDoForm
-          items={items}
           addItem={addItem}
           inputElement={inputElement}
           handleInput={handleInput}
