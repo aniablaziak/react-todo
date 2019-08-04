@@ -41,13 +41,14 @@ const App = () => {
     const itemText = e.target.value;
     const currentItem = { text: itemText, key: Date.now() };
     setCurrentItem(currentItem);
-    console.log("handle input: ", currentItem.text);
   };
 
   const addItem = e => {
     e.preventDefault();
     const newItem = currentItem;
     const allItems = [...items, newItem.text];
+    window.localStorage.setItem("item" + items.length, newItem.text);
+    console.log(localStorage);
     setItems(allItems);
     setCurrentItem({ text: "", key: "" });
   };
