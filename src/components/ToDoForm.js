@@ -33,7 +33,6 @@ const StyledForm = styled.form`
 const ToDoForm = props => {
   React.useEffect(() => {
     props.inputElement.current.focus();
-    console.log(props);
   }, []);
   return (
     <div>

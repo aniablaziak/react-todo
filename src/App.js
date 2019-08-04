@@ -37,6 +37,17 @@ const App = () => {
   const [items, setItems] = React.useState([]);
   const [currentItem, setCurrentItem] = React.useState({ text: "", key: "" });
 
+  React.useEffect(() => {
+    const localStorageItems =
+      JSON.parse(window.localStorage.getItem("items")) || [];
+    const newItem = items[items.length - 1];
+    const itemsToUpdate = [...localStorageItems, newItem];
+    console.log(newItem);
+    if (items.length !== itemsToUpdate.length) {
+      window.localStorage.setItem("items", JSON.stringify(itemsToUpdate));
+    }
+  }, [items]);
+
   const handleInput = e => {
     const itemText = e.target.value;
     const currentItem = { text: itemText, key: Date.now() };
@@ -45,10 +56,7 @@ const App = () => {
 
   const addItem = e => {
     e.preventDefault();
-    const newItem = currentItem;
-    const allItems = [...items, newItem.text];
-    window.localStorage.setItem("item" + items.length, newItem.text);
-    console.log(localStorage);
+    const allItems = [...items, currentItem.text];
     setItems(allItems);
     setCurrentItem({ text: "", key: "" });
   };
