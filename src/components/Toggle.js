@@ -11,6 +11,7 @@ const StyledButton = styled.button`
   margin: 0.5em;
   border: none;
   background: ${props => props.theme.background};
+  cursor: pointer;
 `;
 
 const Toggle = props => {
