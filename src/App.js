@@ -38,12 +38,16 @@ const App = () => {
   const [currentItem, setCurrentItem] = React.useState({ text: "", key: "" });
 
   React.useEffect(() => {
+    //get all of the items from the localStorage
     const localStorageItems =
       JSON.parse(window.localStorage.getItem("items")) || [];
     const newItem = items[items.length - 1];
     const itemsToUpdate = [...localStorageItems, newItem];
-    console.log(newItem);
-    if (items.length !== itemsToUpdate.length) {
+    //if there is anything new in the items state add it to
+    //the localStorage
+    if (items.length) {
+      //set items from in the localStorage to be all
+      //of the items from last state + the new item
       window.localStorage.setItem("items", JSON.stringify(itemsToUpdate));
     }
   }, [items]);
