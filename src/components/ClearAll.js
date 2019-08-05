@@ -24,8 +24,7 @@ const StyledButton = styled.button`
 
 const ClearAll = () => {
   const clearLocalStorage = () => {
-    localStorage.clear();
-    console.log(localStorage);
+    localStorage.removeItem("items");
   };
 
   return (

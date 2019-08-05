@@ -38,9 +38,9 @@ const App = () => {
   const [currentItem, setCurrentItem] = React.useState({ text: "", key: "" });
 
   React.useEffect(() => {
-    //get all of the items from the localStorage
     const localStorageItems =
       JSON.parse(window.localStorage.getItem("items")) || [];
+    //get all of the items from the localStorage
     const newItem = items[items.length - 1];
     const itemsToUpdate = [...localStorageItems, newItem];
     //if there is anything new in the items state add it to
@@ -73,7 +73,7 @@ const App = () => {
       </Toggle>
       <StyledDiv>
         <StyledHeading>To Do</StyledHeading>
-        <ToDoList items={items} />
+        <ToDoList items={items} setItems={setItems} />
         <ToDoForm
           addItem={addItem}
           inputElement={inputElement}
