@@ -22,9 +22,10 @@ const StyledButton = styled.button`
   }
 `;
 
-const ClearAll = () => {
+const ClearAll = props => {
   const clearLocalStorage = () => {
     localStorage.removeItem("items");
+    props.setItems([]);
   };
 
   return (

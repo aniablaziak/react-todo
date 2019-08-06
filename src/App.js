@@ -34,23 +34,12 @@ const StyledDiv = styled.div`
 const App = () => {
   const themeState = useTheme();
   const inputElement = React.createRef();
-  const [items, setItems] = React.useState([]);
+  // Initialise items state from localStorage.
+  // Initialise it here rather than in useEffect to avoid a needless re-render
+  const [items, setItems] = React.useState(
+    JSON.parse(window.localStorage.getItem("items")) || []
+  );
   const [currentItem, setCurrentItem] = React.useState({ text: "", key: "" });
-
-  React.useEffect(() => {
-    const localStorageItems =
-      JSON.parse(window.localStorage.getItem("items")) || [];
-    //get all of the items from the localStorage
-    const newItem = items[items.length - 1];
-    const itemsToUpdate = [...localStorageItems, newItem];
-    //if there is anything new in the items state add it to
-    //the localStorage
-    if (items.length) {
-      //set items from in the localStorage to be all
-      //of the items from last state + the new item
-      window.localStorage.setItem("items", JSON.stringify(itemsToUpdate));
-    }
-  }, [items]);
 
   const handleInput = e => {
     const itemText = e.target.value;
@@ -60,8 +49,9 @@ const App = () => {
 
   const addItem = e => {
     e.preventDefault();
-    const allItems = [...items, currentItem.text];
-    setItems(allItems);
+    const itemsToUpdate = [...items, currentItem.text];
+    setItems(itemsToUpdate);
+    window.localStorage.setItem("items", JSON.stringify(itemsToUpdate));
     setCurrentItem({ text: "", key: "" });
   };
 
@@ -80,7 +70,7 @@ const App = () => {
           handleInput={handleInput}
           currentItem={currentItem}
         />
-        <ClearAll />
+        <ClearAll items={items} setItems={setItems} />
       </StyledDiv>
     </Wrapper>
   );
