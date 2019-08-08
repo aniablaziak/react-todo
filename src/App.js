@@ -55,6 +55,11 @@ const App = () => {
     setCurrentItem({ text: "", key: "" });
   };
 
+  const deleteItem = e => {
+    e.preventDefault();
+    setItems(items.filter(item => item !== e.target.value));
+  };
+
   return (
     <Wrapper>
       <Global />
@@ -63,7 +68,12 @@ const App = () => {
       </Toggle>
       <StyledDiv>
         <StyledHeading>To Do</StyledHeading>
-        <ToDoList items={items} setItems={setItems} />
+        <ToDoList
+          items={items}
+          setItems={setItems}
+          handleItemDelete={handleItemDelete}
+          deleteItem={deleteItem}
+        />
         <ToDoForm
           addItem={addItem}
           inputElement={inputElement}
