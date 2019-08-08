@@ -57,7 +57,9 @@ const App = () => {
 
   const deleteItem = e => {
     e.preventDefault();
-    setItems(items.filter(item => item !== e.target.value));
+    const filteredItems = items.filter(item => item !== e.target.value);
+    setItems(filteredItems);
+    window.localStorage.setItem("items", JSON.stringify(filteredItems));
   };
 
   return (
@@ -68,12 +70,7 @@ const App = () => {
       </Toggle>
       <StyledDiv>
         <StyledHeading>To Do</StyledHeading>
-        <ToDoList
-          items={items}
-          setItems={setItems}
-          handleItemDelete={handleItemDelete}
-          deleteItem={deleteItem}
-        />
+        <ToDoList items={items} setItems={setItems} deleteItem={deleteItem} />
         <ToDoForm
           addItem={addItem}
           inputElement={inputElement}
