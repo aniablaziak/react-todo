@@ -10,13 +10,17 @@ const StyledUl = styled.ul`
 `;
 
 const StyledLi = styled.li`
+  border: solid ${props => props.theme.body} 2px;
+  padding: 0.5em;
+  margin: 0.5em 0;
   display: flex;
-  justify-content: space-between;
+  flex-direction: column;
   color: ${props => props.theme.body};
   cursor: pointer;
-  &:hover {
-    color: grey;
-  }
+  // flex-wrap: wrap;
+  // &:hover {
+  //   color: grey;
+  // }
 `;
 
 const StyledButton = styled.button`
@@ -25,6 +29,8 @@ const StyledButton = styled.button`
   color: ${props => props.theme.body};
   font-family: Lato;
   font-size: 1em;
+  height: 2em;
+  width: 4em;
   cursor: pointer;
 
   &:hover {

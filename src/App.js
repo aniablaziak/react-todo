@@ -11,7 +11,7 @@ const Wrapper = styled("div")`
   background: ${props => props.theme.background};
   color: ${props => props.theme.body}
   width: 100vw;
-  height: 100vh;
+  min-height: 100vh;
 `;
 
 const StyledHeading = styled.h1`
@@ -26,9 +26,9 @@ const StyledDiv = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin: 0 4em;
+  margin: 0 2em;
   padding: 2em;
-  border: solid 2px ${props => props.theme.body};
+  // border: solid 2px ${props => props.theme.body};
 `;
 
 const App = () => {

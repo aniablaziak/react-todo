@@ -8,6 +8,7 @@ const StyledInput = styled.input`
   font-family: Lato;
   padding: 0.2em;
   font-size: 1.5em;
+  width: 100%;
 `;
 
 const StyledButton = styled.button`
@@ -28,6 +29,7 @@ const StyledButton = styled.button`
 
 const StyledForm = styled.form`
   display: flex;
+  width: 100%;
 `;
 
 const ToDoForm = props => {
@@ -35,17 +37,15 @@ const ToDoForm = props => {
     props.inputElement.current.focus();
   }, []);
   return (
-    <div>
-      <StyledForm onSubmit={props.addItem}>
-        <StyledInput
-          placeholder="Task"
-          ref={props.inputElement}
-          value={props.currentItem.text}
-          onChange={props.handleInput}
-        />
-        <StyledButton type="submit">Add</StyledButton>
-      </StyledForm>
-    </div>
+    <StyledForm onSubmit={props.addItem}>
+      <StyledInput
+        placeholder="Add new todo..."
+        ref={props.inputElement}
+        value={props.currentItem.text}
+        onChange={props.handleInput}
+      />
+      <StyledButton type="submit">Add</StyledButton>
+    </StyledForm>
   );
 };
 
